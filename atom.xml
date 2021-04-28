@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/"/>
-  <updated>2021-04-18T08:19:31.499Z</updated>
+  <updated>2021-04-28T14:43:39.836Z</updated>
   <id>https://github.com/watermelonhit/watermelonhit.github.io.git/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 基础篇</title>
+    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/39950849.html"/>
+    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/39950849.html</id>
+    <published>2021-04-28T14:37:00.000Z</published>
+    <updated>2021-04-28T14:43:39.836Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Java-基础篇-学习记录&quot;&gt;&lt;a href=&quot;#Java-基础篇-学习记录&quot; class=&quot;headerlink&quot; title=&quot;Java 基础篇-学习记录&quot;&gt;&lt;/a&gt;Java 基础篇-学习记录&lt;/h1&gt;&lt;h4
+        
+      
+    
+    </summary>
+    
+      <category term="技术篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E6%8A%80%E6%9C%AF%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
