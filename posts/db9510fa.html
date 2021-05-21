@@ -889,14 +889,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.9k
+                        2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        9 分
                     </div>
                     
                 
@@ -987,120 +987,195 @@ class S extends F&lt;String&gt;{
         System.out.println("这是子类的构造器");
         System.out.println(this);
     }
- }
-    ```
-看到这里是不是觉得很牛逼，通过反射居然能达到了一种”未卜先知“，即利用反射通过子类完成了父类中所需要根据指定类型的赋值。那么这种应用主要是应用在哪里呢？
-
-### 应用
- 在jdbc中的DAO（date access object）中应用得比较多，一般一张表就对应着一个DAO接口和其DAOImpl，而在DAO这个抽象类中就可以应用这种，从而减少代码量，增强了通用性。 具体的可以看看以下代码：</code></pre><p>  public abstract class DAO<t> //data access object-对通用方法进行封装<br>{<br>    private Class<t>tclass=null;<br>    //非静态代码块，对他class进行初始化，获取子类中父类的泛型类型<br>    {<br>        Type genericSuperclass = this.getClass().getGenericSuperclass();<br>        ParameterizedType parameterizedType=(ParameterizedType) genericSuperclass;<br>        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();<br>        Type actualTypeArgument = actualTypeArguments[0];<br>        tclass= (Class<t>) actualTypeArgument;<br>    }<br>    //更新方法<br>    public static int update(Connection connection, String sql, Object… arg) {<br>        //对增删改方法进行封装<br>        PreparedStatement preparedStatement = null;<br>        try {<br>            //1.预编译sql语句，返回PreparedStatement实例<br>            preparedStatement = connection.prepareStatement(sql);<br>            //2填充占位符 下标从1开始<br>            for (int i = 0; i &lt; arg.length; ++i)<br>                preparedStatement.setObject(i + 1, arg[i]);<br>            //3执行<br>            return preparedStatement.executeUpdate();//根据更新受影响的行数来返回，&gt;0表示更新成功，0表示失败<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>        } finally {<br>            //4资源的关闭<br>            JdbcUtil.closeResource(null, preparedStatement);<br>        }<br>        return 0;<br>    }<br>    //返回单个对象<br>    public <t> T getInstance(Connection connection, String sql, Object… args) {<br>        PreparedStatement preparedStatement = null;<br>        ResultSet resultSet = null;<br>        try {<br>            connection = JdbcUtil.getConnection();<br>            preparedStatement = connection.prepareStatement(sql);<br>            for (int i = 0; i &lt; args.length; i++)<br>                preparedStatement.setObject(i + 1, args[i]);<br>            resultSet = preparedStatement.executeQuery();//获取结果集<br>            ResultSetMetaData metaData = resultSet.getMetaData();//获取原始数据<br>            int columnCount = metaData.getColumnCount();<br>            T t=null;<br>            if (resultSet.next())//判断有没有下一行，如果有则返回true，并且切换到下一行<br>            {<br>                 t = (T) tclass.getDeclaredConstructor().newInstance();<br>                for (int i = 0; i &lt; columnCount; i++) {<br>                    Object object = resultSet.getObject(i + 1);<br>                    //获取列名<br>                    //String columnName = metaData.getColumnName(i + 1);//注意下标是从1开始的<br>                    //获取列的别名,如果没有起别名则默认原始列名，一般起别名得跟Java中的属性一致<br>                    String columnLabel = metaData.getColumnLabel(i + 1);<br>                    Field declaredField = tclass.getDeclaredField(columnLabel);<br>                    declaredField.setAccessible(true);<br>                    declaredField.set(t, object);<br>                }<br>                return t;<br>            }<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>        } finally {<br>            JdbcUtil.closeResource(null, preparedStatement, resultSet);<br>        }<br>        return null;<br>    }</t></t></t></t></p>
-<pre><code>//查询-获取多个对象
-public &lt;T&gt; List&lt;T&gt; getList(Connection connection,  String sql, Object... args) {
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
-    try {
-        connection = JdbcUtil.getConnection();
-        preparedStatement = connection.prepareStatement(sql);
-        for (int i = 0; i &lt; args.length; i++)
-            preparedStatement.setObject(i + 1, args[i]);
-        resultSet = preparedStatement.executeQuery();//获取结果集
-        ResultSetMetaData metaData = resultSet.getMetaData();//获取原始数据
-        int columnCount = metaData.getColumnCount();
-
-        List tlist = new ArrayList&lt;T&gt;();
-        while (resultSet.next())//判断有没有下一行，如果有则返回true，并且切换到下一行
-        {
-            T t = (T) tclass.getDeclaredConstructor().newInstance();
-            for (int i = 0; i &lt; columnCount; i++) {
-                Object object = resultSet.getObject(i + 1);
-                //获取列名
-                //String columnName = metaData.getColumnName(i + 1);//注意下标是从1开始的
-                //获取列的别名,如果没有起别名则默认原始列名，一般起别名得跟Java中的属性一致
-                String columnLabel = metaData.getColumnLabel(i + 1);
-                Field declaredField = tclass.getDeclaredField(columnLabel);
-                declaredField.setAccessible(true);
-                declaredField.set(t, object);
+ }</code></pre><p>看到这里是不是觉得很牛逼，通过反射居然能达到了一种”未卜先知“，即利用反射通过子类完成了父类中所需要根据指定类型的赋值。那么这种应用主要是应用在哪里呢？</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p> 在jdbc中的DAO（date access object）中应用得比较多，一般一张表就对应着一个DAO接口和其DAOImpl，而在DAO这个抽象类中就可以应用这种，从而减少代码量，增强了通用性。 具体的可以看看以下代码：</p>
+<pre><code>  public abstract class DAO&lt;T&gt; //data access object-对通用方法进行封装
+{
+    private Class&lt;T&gt;tclass=null;
+    //非静态代码块，对他class进行初始化，获取子类中父类的泛型类型
+    {
+        Type genericSuperclass = this.getClass().getGenericSuperclass();
+        ParameterizedType parameterizedType=(ParameterizedType) genericSuperclass;
+        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+        Type actualTypeArgument = actualTypeArguments[0];
+        tclass= (Class&lt;T&gt;) actualTypeArgument;
+    }
+    //更新方法
+    public static int update(Connection connection, String sql, Object... arg) {
+        //对增删改方法进行封装
+        PreparedStatement preparedStatement = null;
+        try {
+            //1.预编译sql语句，返回PreparedStatement实例
+            preparedStatement = connection.prepareStatement(sql);
+            //2填充占位符 下标从1开始
+            for (int i = 0; i &lt; arg.length; ++i)
+                preparedStatement.setObject(i + 1, arg[i]);
+            //3执行
+            return preparedStatement.executeUpdate();//根据更新受影响的行数来返回，&gt;0表示更新成功，0表示失败
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //4资源的关闭
+            JdbcUtil.closeResource(null, preparedStatement);
+        }
+        return 0;
+    }
+    //返回单个对象
+    public &lt;T&gt; T getInstance(Connection connection, String sql, Object... args) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = JdbcUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            for (int i = 0; i &lt; args.length; i++)
+                preparedStatement.setObject(i + 1, args[i]);
+            resultSet = preparedStatement.executeQuery();//获取结果集
+            ResultSetMetaData metaData = resultSet.getMetaData();//获取原始数据
+            int columnCount = metaData.getColumnCount();
+            T t=null;
+            if (resultSet.next())//判断有没有下一行，如果有则返回true，并且切换到下一行
+            {
+                 t = (T) tclass.getDeclaredConstructor().newInstance();
+                for (int i = 0; i &lt; columnCount; i++) {
+                    Object object = resultSet.getObject(i + 1);
+                    //获取列名
+                    //String columnName = metaData.getColumnName(i + 1);//注意下标是从1开始的
+                    //获取列的别名,如果没有起别名则默认原始列名，一般起别名得跟Java中的属性一致
+                    String columnLabel = metaData.getColumnLabel(i + 1);
+                    Field declaredField = tclass.getDeclaredField(columnLabel);
+                    declaredField.setAccessible(true);
+                    declaredField.set(t, object);
+                }
+                return t;
             }
-            tlist.add(t);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.closeResource(null, preparedStatement, resultSet);
         }
-        return tlist;
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        JdbcUtil.closeResource(null, preparedStatement, resultSet);
+        return null;
     }
-    return null;
-}
 
-public &lt;E&gt; E getValue(Connection connection, String sql, Object... args) {
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
-    try {
-        preparedStatement = connection.prepareStatement(sql);
-        for (int i = 0; i &lt; args.length; i++) {
-            preparedStatement.setObject(i + 1, args[i]);
-        }
-        resultSet = preparedStatement.executeQuery();
-        if (resultSet.next()) {
-            return (E) resultSet.getObject(1);
-        }
 
-    } catch (SQLException throwables) {
-        throwables.printStackTrace();
-    } finally {
-        JdbcUtil.closeResource(null, preparedStatement, resultSet);
+    //查询-获取多个对象
+    public &lt;T&gt; List&lt;T&gt; getList(Connection connection,  String sql, Object... args) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = JdbcUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            for (int i = 0; i &lt; args.length; i++)
+                preparedStatement.setObject(i + 1, args[i]);
+            resultSet = preparedStatement.executeQuery();//获取结果集
+            ResultSetMetaData metaData = resultSet.getMetaData();//获取原始数据
+            int columnCount = metaData.getColumnCount();
+
+            List tlist = new ArrayList&lt;T&gt;();
+            while (resultSet.next())//判断有没有下一行，如果有则返回true，并且切换到下一行
+            {
+                T t = (T) tclass.getDeclaredConstructor().newInstance();
+                for (int i = 0; i &lt; columnCount; i++) {
+                    Object object = resultSet.getObject(i + 1);
+                    //获取列名
+                    //String columnName = metaData.getColumnName(i + 1);//注意下标是从1开始的
+                    //获取列的别名,如果没有起别名则默认原始列名，一般起别名得跟Java中的属性一致
+                    String columnLabel = metaData.getColumnLabel(i + 1);
+                    Field declaredField = tclass.getDeclaredField(columnLabel);
+                    declaredField.setAccessible(true);
+                    declaredField.set(t, object);
+                }
+                tlist.add(t);
+            }
+            return tlist;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.closeResource(null, preparedStatement, resultSet);
+        }
+        return null;
     }
-    return null;
-}</code></pre><p>}</p>
-<pre><code></code></pre><p>  public interface CustomerDAO {<br>    //添加cust对象<br>    void insert(Connection connection, Customer cust);</p>
-<pre><code>void deleteById(Connection connection,int id);
 
-void update(Connection connection, Customer cust, String name, String email, String birth);
+    public &lt;E&gt; E getValue(Connection connection, String sql, Object... args) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            for (int i = 0; i &lt; args.length; i++) {
+                preparedStatement.setObject(i + 1, args[i]);
+            }
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return (E) resultSet.getObject(1);
+            }
 
-Customer getCustomerById(Connection connection, int id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JdbcUtil.closeResource(null, preparedStatement, resultSet);
+        }
+        return null;
+    }
+}</code></pre><pre><code>  public interface CustomerDAO {
+    //添加cust对象
+    void insert(Connection connection, Customer cust);
 
-List&lt;Customer&gt; getAll(Connection connection);
+    void deleteById(Connection connection,int id);
 
-Long getCount(Connection connection);
+    void update(Connection connection, Customer cust, String name, String email, String birth);
 
-Date getMaxBirth(Connection connection);</code></pre><p>}</p>
-<pre><code></code></pre><p>  public class CustomerDAOImpl extends DAO<customer>implements CustomerDAO{<br>  //偷懒，只实现了一部分功能<br>    @Override<br>    public void insert(Connection connection, Customer cust) {<br>        String sql=”insert into Customers(name,email,birth)values(?,?,?)”;<br>        update(connection,sql,cust.getName(),cust.getEmail(),cust.getBirth());<br>    }</customer></p>
-<pre><code>@Override
-public void deleteById(Connection connection, int id) {
-    String sql="delete from customers where id=?";
-    update(connection,sql,id);
-}
+    Customer getCustomerById(Connection connection, int id);
 
-@Override
-public void update(Connection connection, Customer cust, String name, String email, String birth) {
-    String sql="update customers set name=?,email=?,birth=? where id=?";
-    update(connection,sql,cust.getName(),cust.getEmail(),cust.getBirth());
-}
+    List&lt;Customer&gt; getAll(Connection connection);
 
-@Override
-public Customer getCustomerById(Connection connection, int id) {
-    String sql="select id,name,email,birth from customers where id=?";
-    Customer customer=  getInstance(connection, sql,id);
-    return customer;
-}
+    Long getCount(Connection connection);
 
-@Override
-public List&lt;Customer&gt; getAll(Connection connection) {
-    String sql="select name,email,birth from customers";
-    return getList(connection,  sql);
-}
+    Date getMaxBirth(Connection connection);
 
-@Override
-public Long getCount(Connection connection) {
-    String sql="select count(*) from customers";
-    return  getValue(connection, sql);
-}
+}</code></pre><pre><code>  public class CustomerDAOImpl extends DAO&lt;Customer&gt;implements CustomerDAO{
+  //偷懒，只实现了一部分功能
+    @Override
+    public void insert(Connection connection, Customer cust) {
+        String sql="insert into Customers(name,email,birth)values(?,?,?)";
+        update(connection,sql,cust.getName(),cust.getEmail(),cust.getBirth());
+    }
 
-@Override
-public Date getMaxBirth(Connection connection) {
-    String sql="select max(birth) from customers";
-    return  getValue(connection, sql);
-}</code></pre><p>}</p>
-<p>```<br>DAO一般是封装了一些通用的方法，DAO接口一般是规范对一张表的操作，而DAOImpl则是实现了其接口中的方法。<br>本文到处结束，谢谢观看！</p>
+    @Override
+    public void deleteById(Connection connection, int id) {
+        String sql="delete from customers where id=?";
+        update(connection,sql,id);
+    }
+
+    @Override
+    public void update(Connection connection, Customer cust, String name, String email, String birth) {
+        String sql="update customers set name=?,email=?,birth=? where id=?";
+        update(connection,sql,cust.getName(),cust.getEmail(),cust.getBirth());
+    }
+
+    @Override
+    public Customer getCustomerById(Connection connection, int id) {
+        String sql="select id,name,email,birth from customers where id=?";
+        Customer customer=  getInstance(connection, sql,id);
+        return customer;
+    }
+
+    @Override
+    public List&lt;Customer&gt; getAll(Connection connection) {
+        String sql="select name,email,birth from customers";
+        return getList(connection,  sql);
+    }
+
+    @Override
+    public Long getCount(Connection connection) {
+        String sql="select count(*) from customers";
+        return  getValue(connection, sql);
+    }
+
+    @Override
+    public Date getMaxBirth(Connection connection) {
+        String sql="select max(birth) from customers";
+        return  getValue(connection, sql);
+    }
+}</code></pre><p>DAO一般是封装了一些通用的方法，DAO接口一般是规范对一张表的操作，而DAOImpl则是实现了其接口中的方法。<br>本文到处结束，谢谢观看！</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2008,8 +2083,8 @@ $(function () {
       app_id: "XXXXX"
     });
   daovoice('update');
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>
