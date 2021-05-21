@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/"/>
-  <updated>2021-04-29T15:41:14.395Z</updated>
+  <updated>2021-05-21T15:57:27.617Z</updated>
   <id>https://github.com/watermelonhit/watermelonhit.github.io.git/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 基础篇</title>
+    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/db9510fa.html"/>
+    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/db9510fa.html</id>
+    <published>2021-05-21T13:02:00.000Z</published>
+    <updated>2021-05-21T15:57:27.617Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;反射-DAO&quot;&gt;&lt;a href=&quot;#反射-DAO&quot; class=&quot;headerlink&quot; title=&quot;反射-DAO&quot;&gt;&lt;/a&gt;反射-DAO&lt;/h1&gt;&lt;p&gt;ps:很久没写博客了，一方面是太懒了，另外一方面是最近也比较忙&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="技术篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E6%8A%80%E6%9C%AF%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 基础篇</title>
