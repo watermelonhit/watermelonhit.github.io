@@ -5,9 +5,9 @@
   <subtitle>watermelonhitの博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/"/>
+  <link href="https://watermelonhit.cn/"/>
   <updated>2021-05-21T16:05:50.658Z</updated>
-  <id>https://github.com/watermelonhit/watermelonhit.github.io.git/</id>
+  <id>https://watermelonhit.cn/</id>
   
   <author>
     <name>小橙子</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Java 基础篇</title>
-    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/db9510fa.html"/>
-    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/db9510fa.html</id>
+    <link href="https://watermelonhit.cn/posts/db9510fa.html"/>
+    <id>https://watermelonhit.cn/posts/db9510fa.html</id>
     <published>2021-05-21T13:02:00.000Z</published>
     <updated>2021-05-21T16:05:50.658Z</updated>
     
@@ -36,17 +36,17 @@
     
     </summary>
     
-      <category term="技术篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E6%8A%80%E6%9C%AF%E7%AF%87/"/>
+      <category term="技术篇" scheme="https://watermelonhit.cn/categories/%E6%8A%80%E6%9C%AF%E7%AF%87/"/>
     
     
-      <category term="Java" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Java/"/>
+      <category term="Java" scheme="https://watermelonhit.cn/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java 基础篇</title>
-    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/39950849.html"/>
-    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/39950849.html</id>
+    <link href="https://watermelonhit.cn/posts/39950849.html"/>
+    <id>https://watermelonhit.cn/posts/39950849.html</id>
     <published>2021-04-28T14:37:00.000Z</published>
     <updated>2021-04-29T15:41:14.395Z</updated>
     
@@ -62,17 +62,17 @@
     
     </summary>
     
-      <category term="技术篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E6%8A%80%E6%9C%AF%E7%AF%87/"/>
+      <category term="技术篇" scheme="https://watermelonhit.cn/categories/%E6%8A%80%E6%9C%AF%E7%AF%87/"/>
     
     
-      <category term="Java" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Java/"/>
+      <category term="Java" scheme="https://watermelonhit.cn/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/4a17b156.html"/>
-    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/4a17b156.html</id>
+    <link href="https://watermelonhit.cn/posts/4a17b156.html"/>
+    <id>https://watermelonhit.cn/posts/4a17b156.html</id>
     <published>2021-04-18T06:48:52.897Z</published>
     <updated>2021-04-18T08:19:31.499Z</updated>
     
@@ -93,8 +93,8 @@
   
   <entry>
     <title>Hexo之渲染绕过</title>
-    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/17fd92ae.html"/>
-    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/17fd92ae.html</id>
+    <link href="https://watermelonhit.cn/posts/17fd92ae.html"/>
+    <id>https://watermelonhit.cn/posts/17fd92ae.html</id>
     <published>2020-04-27T16:00:00.000Z</published>
     <updated>2020-10-08T11:03:24.000Z</updated>
     
@@ -110,19 +110,19 @@
     
     </summary>
     
-      <category term="博客篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
+      <category term="博客篇" scheme="https://watermelonhit.cn/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
     
     
-      <category term="Hexo" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://watermelonhit.cn/tags/Hexo/"/>
     
-      <category term="渲染绕过" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/%E6%B8%B2%E6%9F%93%E7%BB%95%E8%BF%87/"/>
+      <category term="渲染绕过" scheme="https://watermelonhit.cn/tags/%E6%B8%B2%E6%9F%93%E7%BB%95%E8%BF%87/"/>
     
   </entry>
   
   <entry>
     <title>PicGo+GitHub 图床搭建</title>
-    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/7a46f93c.html"/>
-    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/7a46f93c.html</id>
+    <link href="https://watermelonhit.cn/posts/7a46f93c.html"/>
+    <id>https://watermelonhit.cn/posts/7a46f93c.html</id>
     <published>2020-03-14T16:00:00.000Z</published>
     <updated>2020-10-08T11:03:24.000Z</updated>
     
@@ -138,19 +138,19 @@
     
     </summary>
     
-      <category term="博客篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
+      <category term="博客篇" scheme="https://watermelonhit.cn/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
     
     
-      <category term="PicGo" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/PicGo/"/>
+      <category term="PicGo" scheme="https://watermelonhit.cn/tags/PicGo/"/>
     
-      <category term="GitHub图床" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/GitHub%E5%9B%BE%E5%BA%8A/"/>
+      <category term="GitHub图床" scheme="https://watermelonhit.cn/tags/GitHub%E5%9B%BE%E5%BA%8A/"/>
     
   </entry>
   
   <entry>
     <title>阿里云服务器部署Hexo博客</title>
-    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/19d2a4e6.html"/>
-    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/19d2a4e6.html</id>
+    <link href="https://watermelonhit.cn/posts/19d2a4e6.html"/>
+    <id>https://watermelonhit.cn/posts/19d2a4e6.html</id>
     <published>2020-02-26T16:00:00.000Z</published>
     <updated>2020-10-08T11:03:24.000Z</updated>
     
@@ -166,21 +166,21 @@
     
     </summary>
     
-      <category term="博客篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
+      <category term="博客篇" scheme="https://watermelonhit.cn/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
     
     
-      <category term="Hexo" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://watermelonhit.cn/tags/Hexo/"/>
     
-      <category term="博客" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://watermelonhit.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="阿里云" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+      <category term="阿里云" scheme="https://watermelonhit.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
     
   </entry>
   
   <entry>
     <title>个人博客搭建</title>
-    <link href="https://github.com/watermelonhit/watermelonhit.github.io.git/posts/e3e08109.html"/>
-    <id>https://github.com/watermelonhit/watermelonhit.github.io.git/posts/e3e08109.html</id>
+    <link href="https://watermelonhit.cn/posts/e3e08109.html"/>
+    <id>https://watermelonhit.cn/posts/e3e08109.html</id>
     <published>2019-08-27T03:41:03.000Z</published>
     <updated>2020-10-08T11:03:24.000Z</updated>
     
@@ -197,14 +197,14 @@
     
     </summary>
     
-      <category term="博客篇" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
+      <category term="博客篇" scheme="https://watermelonhit.cn/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/"/>
     
     
-      <category term="Hexo" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://watermelonhit.cn/tags/Hexo/"/>
     
-      <category term="Github" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/Github/"/>
+      <category term="Github" scheme="https://watermelonhit.cn/tags/Github/"/>
     
-      <category term="博客" scheme="https://github.com/watermelonhit/watermelonhit.github.io.git/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://watermelonhit.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
