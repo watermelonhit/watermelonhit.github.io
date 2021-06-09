@@ -5,13 +5,17 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Hexo之渲染绕过, watermhit 计算机">
+    <meta name="keywords" content="C++ 项目篇, watermhit 计算机">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg">
     <meta name="360-site-verification" content="2db45fc772bbd3e7efd0985eec0fff97">
-    <meta name="description" content="0x001 Hexo 渲染  在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。因此对某个文件或者目录进行排除渲染是非常必要的。
-0x">
+    <meta name="description" content="综合实验报告——迷宫（maze）项目简介：
+代码量小，注释详细
+具有图形化页面，可以自定义色彩
+实现了搜索过程的可视化
+可以随机生成一定有通路的迷宫，并且可以进行相应的操作，比如移动等
+添加了一些额外的操作，比如重新生成迷宫，寻找最短距离的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +24,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="baidu-site-verification" content="wvlc3L96QK">
-    <title>Hexo之渲染绕过 | watermelonhit</title>
+    <title>C++ 项目篇 | watermelonhit</title>
     <link rel="icon" type="image/png" href="https://pic2.zhimg.com/80/v2-449b59e0299825a01af189ea70cf5f0d_1440w.jpg?source=1940ef5c">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -721,13 +725,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%99%AF/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/05.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo之渲染绕过
+                        C++ 项目篇
                     </div>
                 </div>
             </div>
@@ -847,12 +851,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/" target="_blank">
-                                <span class="chip bg-color">Hexo</span>
-                            </a>
-                        
-                            <a href="/tags/渲染绕过/" target="_blank">
-                                <span class="chip bg-color">渲染绕过</span>
+                            <a href="/tags/C/" target="_blank">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -860,28 +860,19 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/博客篇/" class="post-category" target="_blank">
-                                博客篇
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
             
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-28
+                    2021-06-09
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        luckyzmj
+                        小橙子
                     
                 </div>
 
@@ -889,14 +880,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        515
+                        2.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        12 分
                     </div>
                     
                 
@@ -913,43 +904,421 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="0x001-Hexo-渲染"><a href="#0x001-Hexo-渲染" class="headerlink" title="0x001 Hexo 渲染"></a>0x001 Hexo 渲染</h3><p>  在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。因此对某个文件或者目录进行排除渲染是非常必要的。</p>
-<h3 id="0x002-方法一：font-matter"><a href="#0x002-方法一：font-matter" class="headerlink" title="0x002 方法一：font matter"></a>0x002 方法一：font matter</h3><p><code>Hexo</code>新建网站页面，然后将你的代码直接写入 <code>index.md</code> 中</p>
-<p>在 <code>Front matter</code> 中添加 <code>layout: false</code>，此方法适用于单一的纯<code>HTML</code><br><code>CSS</code> 页面。</p>
-<pre class="line-numbers language-bash"><code class="language-bash">---
-title: tools
-date: 2020-04-28 00:00:00
-type: <span class="token string">"tools"</span>
-layout: <span class="token boolean">false</span>
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="0x003-方法二：skip-render"><a href="#0x003-方法二：skip-render" class="headerlink" title="0x003 方法二：skip render"></a>0x003 方法二：skip render</h3><p>在博客根目录下的 <code>_config.yml</code>，找到 <code>skip_render</code>，大概在32行左右，写入你想要的跳过渲染的路径，注意缩进和空格。</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 指定目录跳过hexo渲染</span>
-skip_render:
-  - <span class="token string">'tools/*'</span>
-  - <span class="token string">'tools/**'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>注释：<code>tools/*</code> 表示在目录 <code>source/fireworks</code> 下的文件全部跳过渲染，<code>tools/**</code> 表示在博客根目录 <code>source/tools/</code> 文件夹下的文件全部跳过渲染（例如页面的 js、css 在另一个文件夹中）。</p>
-</blockquote>
-<h3 id="0x004-案例：webstack-导航"><a href="#0x004-案例：webstack-导航" class="headerlink" title="0x004 案例：webstack 导航"></a>0x004 案例：webstack 导航</h3><p><code>webstack</code>是一个纯静态的网址导航网站，内容均由<code>viggo</code>收集并整理。项目基于<code>bootstrap</code>前端框架开发。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://camo.githubusercontent.com/41111c4c1d9922982f380566e6a2f8415204c52c/687474703a2f2f7777772e776562737461636b2e63632f6173736574732f696d616765732f707265766965772e676966" alt="image"></p>
-<ul>
-<li>Github：<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank" rel="noopener">https://github.com/WebStackPage/WebStackPage.github.io</a></li>
+                <h2 id="综合实验报告——迷宫（maze）"><a href="#综合实验报告——迷宫（maze）" class="headerlink" title="综合实验报告——迷宫（maze）"></a>综合实验报告——迷宫（maze）</h2><h3 id="项目简介："><a href="#项目简介：" class="headerlink" title="项目简介："></a>项目简介：<br></h3><ul>
+<li>代码量小，注释详细</li>
+<li>具有图形化页面，可以自定义色彩</li>
+<li>实现了搜索过程的可视化</li>
+<li>可以随机生成一定有通路的迷宫，并且可以进行相应的操作，比如移动等</li>
+<li>添加了一些额外的操作，比如重新生成迷宫，寻找最短距离的通路<br><br>……</li>
 </ul>
-<p>在博客根目录 <code>source/</code>下新建<code>tools</code>，然后新建<code>index.html</code>,将<code>webstack</code>网页源码全选复制粘贴到里面。</p>
-<ul>
-<li>本站的webstack源码：<a href="view-source:http://luckyzmj.cn/tools/" target="_blank" rel="noopener">view-source:http://luckyzmj.cn/tools/</a></li>
-</ul>
-<blockquote>
-<p>注意：将源码里的部分信息以及跳转链接按照你真实个人博客的环境进行修改。</p>
-</blockquote>
-<p>然后打开博客根目录下配置文件<code>_config.yml</code>，找到<code>skip_render</code>，做如下修改：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">skip_render:
-  - <span class="token string">'tools/*'</span>
-  - <span class="token string">'tools/**'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>最后执行<code>hexo clean</code>和<code>hexo s -g</code>本地预览，检查无误后<code>hexo g -d</code>部署到服务器上即可。</p>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
-<li><a href="https://xiabor.com/2020/04/21/hexo3/#%E5%A6%82%E4%BD%95%E8%B7%B3%E8%BF%87hexo%E7%9A%84%E6%B8%B2%E6%9F%93" target="_blank" rel="noopener">https://xiabor.com/2020/04/21/hexo3/#%E5%A6%82%E4%BD%95%E8%B7%B3%E8%BF%87hexo%E7%9A%84%E6%B8%B2%E6%9F%93</a></li>
-</ul>
+<h3 id="代码讲解："><a href="#代码讲解：" class="headerlink" title="代码讲解："></a>代码讲解：</h3><p>  在生成迷宫过程中采用了bfs（广度优先），生成通路时也是采用了bfs，利用bfs的特性就一定可以找到最短距离的通路。<br><br>   <strong>生成：</strong> 利用比较简单的bfs生成简易迷宫，迷宫里面分成了许多的单元格，每个单元格里面记录了五个数据，分别是当前单元格的状态，上下左右单元格的状态（是否能走向这四个方向），利用随机法，每一次只打通一面，且打通的面肯定是联通的，这也保证了一定有路。在生成迷宫中比较精华的是设置了带访问点，且随机去访问这些待访问点且只打通一面，从而产生了迷宫效果。<br><br>  <strong>生成通路：</strong>同样也是利用bfs进行搜索，上述已经说过了一定有解，所利用bfs就一定可以生成一条最短的通路。<br><br></p>
+<h3 id="效果展示："><a href="#效果展示：" class="headerlink" title="效果展示："></a>效果展示：</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="%5Cimages%5Cpasted-0.png%5C" alt="upload successful"></p>
+<h3 id="码源："><a href="#码源：" class="headerlink" title="码源："></a>码源：</h3><p>由于代码量不多就直接发出来了！</p>
+<pre><code>#include&lt;easyx.h&gt;
+#include&lt;vector&gt;//可以访问的边
+#include&lt;stdlib.h&gt;
+#include&lt;time.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;graphics.h&gt;
+#include &lt;stdio.h&gt;
+
+#define MAP_ROW 20    /*25*/
+#define MAP_COL 25    /*45*/
+
+#define OUT_ROW MAP_ROW - 1
+#define OUT_COL MAP_COL - 1
+
+struct Node
+{
+    int flag;            //表示关键结点是否访问过 0:未访问 1:已访问 2:待访问
+                                    // 3:人物 4:目的地
+    bool left, right, top, buttom;    //表示这个节点周围的四堵墙 0:不可通过的墙 1:可通过的空地
+};
+//搜索中所用来保存节点的
+struct node{
+    int x ; int y; int pre;
+}query[MAP_ROW*MAP_COL*4];
+
+int map_v[MAP_ROW][MAP_COL] = { 0 };//0-没访问过，1-已经访问过，2-最短路
+
+int index_Row, index_Col;            //人所在行，列
+
+void init(Node map[][MAP_COL]);
+
+int bfs(int x, int y);
+
+void drawMap(Node map[][MAP_COL]);
+
+void play(Node map[][MAP_COL]);
+
+void borderThrough(Node map[][MAP_COL], const COORD node);
+
+int judg(Node map[][MAP_COL])//判断是否到达了终点
+{
+    if (map[OUT_ROW][OUT_COL].flag == 3)
+        return 1;
+    else
+        return 0;
+}
+int main()
+{
+    srand((unsigned)time(NULL));
+    initgraph(MAP_COL * 45, MAP_ROW * 30);      //设置了整张地图的规格
+    Node map[MAP_ROW][MAP_COL] = { 0 };            //每个墙 都没打通的  每个结点 都是没有访问过
+    int map_v[MAP_ROW][MAP_COL] = { 0 };
+
+    init(map);                            /*初始化地图*/
+    drawMap(map);
+    while (1)
+    {
+        play(map);
+        drawMap(map);
+        if (judg(map))
+        {
+            MessageBox(GetHWnd(), L"恭喜你赢了", L"Vectory", MB_OK);
+            memset(map, 0, sizeof(Node) * MAP_ROW * MAP_COL);
+            init(map);
+            drawMap(map);
+        }
+    }
+    getchar();
+    closegraph();
+    return 0;
+}
+int bfs(int x, int y,const Node map[][MAP_COL])//**存在bug
+{
+    int first = 1, second = 1;//模拟队列
+    map_v[x][y] = 1;
+    query[second].pre = -1;
+    query[second].x = x;
+    query[second].y = y;
+    second++;
+    while (second &gt; first) {
+        int xx = query[first].x, yy = query[first].y;//行，列
+        map_v[xx][yy] = 1;
+        if (map[xx][yy].top == 1) 
+        {//上面可走
+            if (xx &gt;= 1 &amp;&amp; xx &lt;= MAP_ROW - 1 &amp;&amp; yy &gt;= 0 &amp;&amp; yy &lt;= MAP_COL-1&amp;&amp;map_v[xx-1][yy]==0) {
+                query[second].pre = first;
+                query[second].x = xx - 1;
+                query[second++].y = yy;
+            }
+        }
+        if (map[xx][yy].buttom == 1)
+        {//下面可以走
+            if (xx &gt;=0 &amp;&amp; xx &lt;= MAP_ROW - 2 &amp;&amp; yy &gt;= 0 &amp;&amp; yy &lt;= MAP_COL - 1&amp;&amp;map_v[xx + 1][yy] == 0) {
+                query[second].pre = first;
+                query[second].x = xx+1;
+                query[second++].y = yy;
+                if (xx == MAP_ROW - 2 &amp;&amp; yy == MAP_COL - 1) { return second-1; }//走到了终点,并且返回头指针
+            }
+        }
+        if (map[xx][yy].left == 1)
+        {//左面可以走
+            if (xx &gt;= 0 &amp;&amp; xx &lt;= MAP_ROW - 1 &amp;&amp; yy &gt;= 1 &amp;&amp; yy &lt;= MAP_COL - 1 &amp;&amp; map_v[xx][yy-1] == 0) {
+                query[second].pre = first;
+                query[second].x = xx;
+                query[second++].y = yy-1;
+            }
+        }
+        if (map[xx][yy].right == 1)
+        {//右面可以走
+            if (xx &gt;= 0 &amp;&amp; xx &lt;= MAP_ROW - 1 &amp;&amp; yy &gt;= 0 &amp;&amp; yy &lt;= MAP_COL - 2 &amp;&amp; map_v[xx][yy+1] == 0) {
+                query[second].pre = first;
+                query[second].x = xx;
+                query[second++].y = yy+1;
+                if (xx == MAP_ROW - 1 &amp;&amp; yy == MAP_COL - 2) { return second-1; }//走到了终点,并且返回头指针
+            }
+        }
+        first++;
+    }
+    return 1;//一般情况下是不会出现这个结果的
+}
+void ans(int start) //传入first头指针
+{
+    int x = query[start].x, y = query[start].y;
+    map_v[x][y] = 2;
+    if (query[start].pre != -1) {
+        ans(query[start].pre);
+    }
+    return;
+}
+void play(Node map[][MAP_COL])
+{
+    /*******玩家操作*******/
+    char dir;
+    /******找到小人******/
+    for (int Row = 0; Row &lt; MAP_ROW; Row++)
+    {
+        for (int Col = 0; Col &lt; MAP_COL; Col++)
+        {
+            if (map[Row][Col].flag == 3)
+            {
+                index_Row = Row;
+                index_Col = Col;
+            }
+        }
+    }
+    dir = _getch();//从键盘获取值
+    switch (dir)
+    {
+    case 'q':                    //寻找通路的方法
+        setfillcolor(RGB(255,165,0));//实现按钮闪变
+        solidrectangle(25 * 40, 100, 25 * 45, 150);
+        settextstyle(18, 0, _T("楷体"));
+        settextcolor(RGB(255,106,106));
+        outtextxy(25 * 40 + 8, 115, _T("寻找通路"));
+        ans(bfs(0, 0,map));
+        drawMap(map);
+        break;
+    case 'r':                    // 重新生成迷宫
+        setfillcolor(RGB(255, 165, 0));
+        solidrectangle(25 * 40, 200, 25 * 45, 250);
+        settextstyle(18, 0, _T("楷体"));
+        settextcolor(RGB(255, 106, 106));
+        outtextxy(25 * 40 + 8, 225, _T("重新生成"));
+        Sleep(100);
+        memset(map, 0, sizeof(Node) * MAP_ROW * MAP_COL);
+        init(map);            /*初始化地图*/
+        drawMap(map);
+        break;
+
+    case 'w':
+    case 72:
+        //判断人物所在点上 top 是否可以通行
+        if (map[index_Row][index_Col].top == 1 &amp;&amp; index_Row &gt;= 1)
+        {
+            map[index_Row][index_Col].flag = 1;
+            map[index_Row - 1][index_Col].flag = 3;
+        }
+        break;
+    case 's':
+    case 80:
+        //判断人物所在点 buttom 是否可以通行
+        if (map[index_Row][index_Col].buttom == 1 &amp;&amp; index_Row &lt; MAP_ROW - 1)
+        {
+            map[index_Row][index_Col].flag = 1;
+            map[index_Row + 1][index_Col].flag = 3;
+        }
+        break;
+    case 'a':
+    case 75:
+        //判断人物所在点 left 是否可以通行
+        if (map[index_Row][index_Col].left == 1 &amp;&amp; index_Col &gt;= 1)
+        {
+            map[index_Row][index_Col].flag = 1;
+            map[index_Row][index_Col - 1].flag = 3;
+        }
+        break;
+    case 'd':
+    case 77:
+        //判断人物所在点 right 是否可以通行
+        if (map[index_Row][index_Col].right == 1)
+        {
+            map[index_Row][index_Col].flag = 1;
+            map[index_Row][index_Col + 1].flag = 3;
+        }
+        break;
+    }
+}
+
+void init(Node map[][MAP_COL])
+{
+    setfillcolor(WHITE);        //填充颜色 白色
+    setlinecolor(BLACK);        //线条颜色  红色
+    setlinestyle(PS_SOLID, 2);    //线条风格
+    //对查询表进行重置
+    for (int i = 0; i &lt; MAP_ROW * MAP_COL * 4; i++) {
+        query[i].pre = 0;
+        query[i].x = 0;
+        query[i].y = 0;
+    }
+    //先选中一个结点  最左上角  arr[0][0]
+    map[0][0].flag = 1;            //这个节点已经访问过
+
+    for (int i = 0; i &lt; MAP_ROW; i++) {
+        for (int j = 0; j &lt; MAP_COL; j++) {
+            map_v[i][j] = { 0 };//对查询访问数组进行初始化
+        }
+    }
+
+    COORD waitForVisit[MAP_COL * MAP_ROW];    //存放待访问的结点
+    int len = 0;                    //map里面的坐标的个数
+
+    waitForVisit[len++] = { 1, 0 };        //下方的结点 可以访问
+    map[1][0].flag = 2;                    //待访问
+    waitForVisit[len++] = { 0, 1 };        //右边的结点 可以访问
+    map[0][1].flag = 2;                    //待访问
+    int m;
+
+    while (len &gt; 0)
+    {
+        //随机选取其中的一个结点  进行访问
+        m = rand() % len;    //从可以访问的结点中随机取一个
+        /*打通这个节点  把这个节点相邻的结点放到map里面*/
+        borderThrough(map, waitForVisit[m]);    //borderThrough作用:打通waitForVisit[m]节点的任意一面（上下左右任意一面）
+        map[waitForVisit[m].X][waitForVisit[m].Y].flag = 1;        /*已经访问过这个节点*/
+
+        /*周围的四个节点(如果有) 全部放到map里面*/
+        if (waitForVisit[m].X - 1 &gt;= 0 &amp;&amp; map[waitForVisit[m].X - 1][waitForVisit[m].Y].flag == 0)
+        {
+            //如果上方的结点没有访问过   设置为待访问 并且把这个位置放到map里面
+            map[waitForVisit[m].X - 1][waitForVisit[m].Y].flag = 2;
+            waitForVisit[len++] = { waitForVisit[m].X - 1, waitForVisit[m].Y };
+        }
+        if (waitForVisit[m].X + 1 &lt; MAP_ROW &amp;&amp; map[waitForVisit[m].X + 1][waitForVisit[m].Y].flag == 0)
+        {
+            //下
+            map[waitForVisit[m].X + 1][waitForVisit[m].Y].flag = 2;
+            waitForVisit[len++] = { waitForVisit[m].X + 1, waitForVisit[m].Y };
+        }
+        if (waitForVisit[m].Y - 1 &gt;= 0 &amp;&amp; map[waitForVisit[m].X][waitForVisit[m].Y - 1].flag == 0)
+        {
+            //左
+            map[waitForVisit[m].X][waitForVisit[m].Y - 1].flag = 2;
+            waitForVisit[len++] = { waitForVisit[m].X, waitForVisit[m].Y - 1 };
+        }
+        if (waitForVisit[m].Y + 1 &lt; MAP_COL &amp;&amp; map[waitForVisit[m].X][waitForVisit[m].Y + 1].flag == 0)
+        {
+            //右
+            map[waitForVisit[m].X][waitForVisit[m].Y + 1].flag = 2;
+            waitForVisit[len++] = { waitForVisit[m].X, waitForVisit[m].Y + 1 };
+        }
+        //map[m]已经访问过  从map里面删掉就可以
+        if (m == len - 1)//没有可以添加的待访问点
+            len--;
+        else
+        { //对已经访问过的节点进行更新
+            waitForVisit[m] = waitForVisit[len - 1];
+            len--;
+        }
+        drawMap(map);
+    }
+
+    map[0][0].flag = 3;                            //初始化人物
+    map[MAP_ROW - 1][MAP_COL - 1].flag = 4;        //初始目的地
+
+}
+
+void drawMap(Node map[][MAP_COL])
+{
+    BeginBatchDraw();
+    cleardevice();                                    //清屏操作
+    for (int i = 0; i &lt; MAP_ROW; ++i)
+    {
+        for (int j = 0; j &lt; MAP_COL; ++j)
+        {
+            if (map[i][j].flag == 0)                //没有访问过这个节点
+            {
+                setfillcolor(WHITE);
+                if (map_v[i][j] == 2) {
+                    setfillcolor(RGB(255, 48, 48));
+                }
+            }
+            else if (map[i][j].flag == 1)            //访问过
+            {
+                setfillcolor(RGB(255, 193, 193));
+                if (map_v[i][j] == 2) {
+                    setfillcolor(RGB(255, 48, 48));
+                }
+            }
+            else if (map[i][j].flag == 2)            //待访问
+            {
+                setfillcolor(BLUE);
+                if (map_v[i][j] == 2) {
+                    setfillcolor(RGB(255, 48, 48));
+                }
+            }
+            else if (map[i][j].flag == 3)            //人物                          
+            {
+                setfillcolor(RED);
+            }
+            else if (map[i][j].flag == 4)            //目的地
+            {
+                setfillcolor(GREEN);
+            }
+            solidrectangle(j * 40, i * 30, j * 40 + 39, i * 30 +29);    //绘制
+            if (map[i][j].top == 0)                //没有打通
+            {
+                line(j * 40, i * 30, j * 40 + 39, i * 30);
+            }
+            if (map[i][j].buttom == 0)
+            {
+                line(j * 40, i * 30 + 29, j * 40 + 39, i * 30 + 29);
+            }
+            if (map[i][j].left == 0)
+            {
+                line(j * 40, i * 30, j * 40, i * 30 + 29);
+            }
+            if (map[i][j].right == 0)
+            {
+                line(j * 40+39, i * 30, j * 40 + 39, i * 30 + 29);
+            }
+        }
+    }
+    setfillcolor(RGB(240,255,255));
+    solidrectangle(25 * 40, 0, 25 * 45, 20 * 30-1);
+    setbkmode(TRANSPARENT);//设置当前设备图案填充和文字输出时的背景模式
+    rectangle(25 * 40, 100, 25 * 45, 150);
+    rectangle(25 * 40, 200, 25 * 45, 250);
+    RECT r = {25 * 40, 300, 25 * 45, 500};
+    setfillcolor(RGB(238,238,209));
+    solidrectangle(25 * 40, 100, 25 * 45, 150);
+    solidrectangle(25 * 40, 200, 25 * 45, 250);
+    settextstyle(18, 0, _T("楷体"));
+    settextcolor(RGB(0,0,0));
+    outtextxy(25 * 40 + 8, 115, _T("寻找通路(q)"));
+    outtextxy(25 * 40 + 8, 225, _T("重新生成(r)"));
+    drawtext(_T("* * * * *\n(要在英文输入状态下）\n按压方向箭头进行移动\n\n按压r,q可以进行相应操作"), &amp;r, DT_WORDBREAK);
+
+    EndBatchDraw();//结束绘画，并呈现出来
+}
+
+void borderThrough(Node map[][MAP_COL], const COORD node)
+{
+    int flag = 0;
+    int dir;
+    do
+    {
+        //判断周围的结点 有哪些是可以打通的   可以打通就打通
+        dir = rand() % 4;
+        switch (dir)
+        {
+        case 0:
+            if ((node.X + 1 &lt; MAP_ROW) &amp;&amp; map[node.X + 1][node.Y].flag == 1)//下
+            {
+                map[node.X + 1][node.Y].top = 1;        //打通两堵墙
+                map[node.X][node.Y].buttom = 1;
+                flag = 1;
+                break;
+            }
+        case 1:
+            if ((node.Y - 1 &gt;= 0) &amp;&amp; map[node.X][node.Y - 1].flag == 1)//左
+            {
+                map[node.X][node.Y - 1].right = 1;        //打通两堵墙
+                map[node.X][node.Y].left = 1;
+                flag = 1;
+                break;
+            }
+        case 2:
+            if (node.Y + 1 &lt; MAP_COL &amp;&amp; map[node.X][node.Y + 1].flag == 1)//右
+            {
+                map[node.X][node.Y + 1].left = 1;        //打通两堵墙
+                map[node.X][node.Y].right = 1;
+                flag = 1;
+                break;
+            }
+        case 3:
+            if ((node.X - 1 &gt;= 0) &amp;&amp; map[node.X - 1][node.Y].flag == 1)//上
+            {
+                map[node.X - 1][node.Y].buttom = 1;
+                map[node.X][node.Y].top = 1;
+                flag = 1;
+                break;
+            }
+        }
+    } while (!flag);
+}</code></pre><p>本文章到此结束！感谢阅读！</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -994,7 +1363,7 @@ skip_render:
                     </span>
                     <a href="https://watermelonhit.cn" class="b-link-green">watermelonhit</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/17fd92ae.html" class="b-link-green">Hexo之渲染绕过</a>
+                    <a href="/posts/3f22360e.html" class="b-link-green">C++ 项目篇</a>
                 </p>
             </div>
 
@@ -1346,11 +1715,60 @@ skip_render:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/39950849.html">
+                <a href="/posts/3f22360e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E5%8A%A8%E6%BC%AB%E6%8F%92%E7%94%BB/05.jpg" class="responsive-img" alt="C++ 项目篇">
+                        
+                        <span class="card-title">C++ 项目篇</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            综合实验报告——迷宫（maze）项目简介：
+代码量小，注释详细
+具有图形化页面，可以自定义色彩
+实现了搜索过程的可视化
+可以随机生成一定有通路的迷宫，并且可以进行相应的操作，比如移动等
+添加了一些额外的操作，比如重新生成迷宫，寻找最短距离的
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-09
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/db9510fa.html">
                     <div class="card-image">
                         
                         
@@ -1362,18 +1780,18 @@ skip_render:
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            反射 学习记录（一）现阶段所学的主要是反射，反射在ssm框架上应用得比较多，还是算比较重要的一点package day39;
-
-import org.junit.Test;
-
-import java.io.FileInputStream;
-
+                            反射-DAOps:很久没写博客了，一方面是太懒了，另外一方面是最近也比较忙
+关于代码块和this，你还记得多少？先插入一小段代码来思考一下
+  class FF{
+    int a=1;
+    {
+        System.out.
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1391,59 +1809,6 @@ import java.io.FileInputStream;
                     
                     <a href="/tags/Java/" target="_blank">
                         <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/7a46f93c.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed/galleries/%E7%92%80%E7%92%A8%E6%98%9F%E7%A9%BA/01.jpg" class="responsive-img" alt="PicGo+GitHub 图床搭建">
-                        
-                        <span class="card-title">PicGo+GitHub 图床搭建</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            使用 PicGo+jsdelivr+GitHub 打造最稳定可靠的免费图床。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-15
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/博客篇/" class="post-category" target="_blank">
-                                    博客篇
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PicGo/" target="_blank">
-                        <span class="chip bg-color">PicGo</span>
-                    </a>
-                    
-                    <a href="/tags/GitHub图床/" target="_blank">
-                        <span class="chip bg-color">GitHub图床</span>
                     </a>
                     
                 </div>
