@@ -23,6 +23,19 @@
     
     
     <entry>
+      <title>Java 项目篇</title>
+      <link href="/posts/3772c016.html"/>
+      <url>/posts/3772c016.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="第一个小项目——完全基于Java的聊天室"><a href="#第一个小项目——完全基于Java的聊天室" class="headerlink" title="第一个小项目——完全基于Java的聊天室#"></a>第一个小项目——完全基于Java的聊天室#</h2><p>本小项目重点学习了一个大佬的作品的思路和编程，欢迎大家多去关注<a href="https://www.cnblogs.com/csu-lmw" target="_blank" rel="noopener">关注</a>一下啊!</p><h3 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h3><p>    基于CS架构实现  </p><ol><li>用Java图形用户界面编写聊天室服务器端和客户端， 支持多个客户端连接到一个服务器。每个客户端能够输入账号，包括注册功能。<br>(多了一个小拓展，可以在一个机子上开多个客户端，方便自己调试用）</li><li>可以实现群聊（聊天记录显示在所有客户端界面）。</li><li>完成好友列表在各个客户端上显示，包括头像和用户名。</li><li>可以实现私人聊天，用户可以选择某个其他用户，单独发送信息，同时实现了文件传输，还能发送窗口振动。</li><li>服务器能够群发系统消息，能够对用户私发消息，能够强行让某些用户下线。</li><li>客户端的上线下线要求能够在其他客户端上面实时刷新。  </li><li>服务器能够查看在线用户和注册用户<br></li></ol><h3 id="结构介绍"><a href="#结构介绍" class="headerlink" title="结构介绍"></a>结构介绍</h3><p>主要由三大部门组成：客户端，服务端，数据类包</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java 基础篇</title>
       <link href="/posts/db9510fa.html"/>
       <url>/posts/db9510fa.html</url>
