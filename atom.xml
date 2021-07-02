@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://watermelonhit.cn/"/>
-  <updated>2021-06-09T07:17:20.190Z</updated>
+  <updated>2021-07-02T15:42:10.596Z</updated>
   <id>https://watermelonhit.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 小杂篇</title>
+    <link href="https://watermelonhit.cn/posts/41ca45c.html"/>
+    <id>https://watermelonhit.cn/posts/41ca45c.html</id>
+    <published>2021-07-02T14:42:00.000Z</published>
+    <updated>2021-07-02T15:42:10.596Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;测测你基础牢不牢固（一）&quot;&gt;&lt;a href=&quot;#测测你基础牢不牢固（一）&quot; class=&quot;headerlink&quot; title=&quot;测测你基础牢不牢固（一）&quot;&gt;&lt;/a&gt;测测你基础牢不牢固（一）&lt;/h3&gt;&lt;br&gt;
+*
+        
+      
+    
+    </summary>
+    
+      <category term="复习篇" scheme="https://watermelonhit.cn/categories/%E5%A4%8D%E4%B9%A0%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="https://watermelonhit.cn/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ 项目篇</title>
@@ -44,8 +71,8 @@
     <title>Java 项目篇</title>
     <link href="https://watermelonhit.cn/posts/3772c016.html"/>
     <id>https://watermelonhit.cn/posts/3772c016.html</id>
-    <published>2021-06-06T03:42:13.000Z</published>
-    <updated>2021-06-20T16:49:00.419Z</updated>
+    <published>2021-06-06T03:42:00.000Z</published>
+    <updated>2021-07-02T14:42:43.321Z</updated>
     
     <summary type="html">
     

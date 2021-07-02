@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java 小杂篇</title>
+      <link href="/posts/41ca45c.html"/>
+      <url>/posts/41ca45c.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="测测你基础牢不牢固（一）"><a href="#测测你基础牢不牢固（一）" class="headerlink" title="测测你基础牢不牢固（一）"></a>测测你基础牢不牢固（一）</h3><br>* 关于右移运算<br>负数右移高位补1（补码表示）,那负数右移的最大数字可以是什么呢？<br>（负数的最大结果是-1，比如-1右移1位结果为-1，根据补码表示法就明白了）；左移-&gt; *2,右移-&gt; /2,比如3&gt;&gt;2==1;<br><ul><li>三元运算符要求后面类型统一；<pre><code>@Test  public void test0() {      System.out.println(true ?65:'a');      // 三元运算符要求后面类型统一；  }  ------------------  运行结果：A</code></pre><br></li></ul><ul><li>对静态，非静态代码块，构造器的基础检验的经典demo</li></ul><pre><code>public class BlockTest {public static void main(String[] args) {    //调用类变量    int num1=Son.id2;    System.out.println("************");    //创建对象    Son son=new Son();//先完成类的加载，再进行对象的创建    System.out.println("***********");    Son son1=new Son();//由于上一次完成的类的加载，故静态代码块不执行了}}class Father{    static int id1=1;    Father(){        System.out.println("this is father constructor");    }    static     {        System.out.println("this is father static block");    }    {        System.out.println("this is father block");    }    }class Son extends Father{    static int id2=2;    Son()    {        System.out.println("this is son constructor");    }    static     {        System.out.println("this is son static block");    }    {        System.out.println("this is son block");    }}--------------------------运行结果：this is father static blockthis is son static block************this is father blockthis is father constructorthis is son blockthis is son constructor***********this is father blockthis is father constructorthis is son blockthis is son constructor</code></pre><br>* 静态属性和静态方法能够被继承，但是不能被子类所重写<pre><code>class A{    public static int nn=10;    public int n1=1;}class B extends A{    public int n1=2;}public class MT {        public static void main(String[]args) {            A a=new B();            System.out.println(a.n1);//执行父类的属性            B b=new B();            System.out.println(b.nn);//测试静态是否能够被继承        }}--------------------------运行结果：110</code></pre><br>* 局部内部类引用外面的局部变量，该变量是否得是常量？ <br>是```public class InClass {//局部内部类的注意点：    public static void method () {            int num=0;//其实本质是final常量,final int num,只是在jdk8后自动省略了              class Test{                public void print() {                    //敲黑板：局部内部类访问局部变量必须得是常量                    /*                     * java采用了将局部变量拷贝到了内部类里面，相当于一个成员变量                     * 但是如何保证数据的一致性呢？java将它转变为了常量，转变的意思是即使你忘记加final，也会自动帮你加上                     * 回到原点：为什么要拷贝到内部类里边呢？                     * 最根本的原因是：内部类的生命周期比局部变量的生命周期长，                     * 这就会导致了一个问题， 内部类访问了一个已经被回收掉的变量                     */                    System.out.println(num);                }            }             new Test().print();//创建内部类，调用内部类方法//方法内部类只能在方法内使用，故不可以使用权限修饰符和static    }    public static void main(String []args) {        new InClass().method() ;    }}```<br>+ 线程：可由进程细分出来的，每一个线程拥有独立的虚拟机栈和程序计数器，但是共用进程的堆和方法区<br><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 复习篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++ 项目篇</title>
       <link href="/posts/3f22360e.html"/>
       <url>/posts/3f22360e.html</url>
